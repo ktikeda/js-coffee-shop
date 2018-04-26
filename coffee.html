@@ -48,7 +48,11 @@
 
     // Set these variables to their DOM elements
 
-    let coffeeImage;
+    let coffeeImage = document.querySelector("#coffee-image");
+    coffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
+
+    coffeeImage.addEventListener('click', makeCoffee);
+
     let revenueMessage;
 
     // use this JavaScript object in further study step
@@ -60,6 +64,10 @@
         "hot chocolate": 2.50
     };
 
+    function makeCoffee(evt){
+        
+        coffeeImage.setAttribute('src', 'static/coffee_mug.jpg');
+    }
 
 </script>
 
