@@ -44,14 +44,14 @@
     </div>
 </div>
 
-<script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js">
 
     // Set these variables to their DOM elements
 
-    let coffeeImage = document.querySelector("#coffee-image");
-    coffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
+    let coffeeImage = $("img#coffee-image"); //let coffeeImage = document.querySelector("#coffee-image");
+    coffeeImage.attr("src", "coffee_beans.jpg"); //coffeeImage.setAttribute('src', 'static/coffee_beans.jpg');
 
-    coffeeImage.addEventListener('click', makeCoffee);
+    coffeeImage.on('click', makeCoffee); //coffeeImage.addEventListener('click', makeCoffee);
 
     let revenueMessage;
 
@@ -66,7 +66,24 @@
 
     function makeCoffee(evt){
         
-        coffeeImage.setAttribute('src', 'static/coffee_mug.jpg');
+
+        const coffeeMachine = function() {
+            coffeeImage.setAttribute('src', 'static/coffee_machine.jpg');
+            setTimeout(coffeeMug, 1500);
+        };
+
+        const coffeeMug = function() {
+            coffeeImage.setAttribute('src', 'static/coffee_mug.jpg');
+            setTimeout(coffeeBeans, 2500);
+        };
+        
+        const coffeeBeans = function() {
+            coffeeImage.setAttribute('src', 'static/coffee_beans.jpg')};
+
+        
+        coffeeMachine();
+
+        
     }
 
 </script>
